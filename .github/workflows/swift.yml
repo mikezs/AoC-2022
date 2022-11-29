@@ -1,0 +1,21 @@
+name: Swift
+
+on:
+  push:
+    branches: [ main, develop ]
+
+jobs:
+  build:
+
+    runs-on: macos-12
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Write config.swift
+      run: |
+        echo "${{ secrets.CONFIG_SWIFT }}" > Sources/AoC/config.swift
+    - name: Run tests
+      run: |
+        xcodebuild test -scheme AoC -destination platform="macOS"
+    - name: Codecov
+      run: bash <(curl -s https://codecov.io/bash)
