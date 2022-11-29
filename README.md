@@ -1,11 +1,11 @@
 # AoC-2022
-![swift workflow](https://github.com/mikezs/AoC-2022/actions/workflows/swift.yml/badge.svg)
+[![swift workflow](https://github.com/mikezs/AoC-2022/actions/workflows/swift.yml/badge.svg)](https://github.com/mikezs/AoC-2022/actions)
 [![codecov](https://codecov.io/gh/mikezs/AoC-2022/branch/develop/graph/badge.svg?token=64OZZEYDTF)](https://codecov.io/gh/mikezs/AoC-2022)
 [![Sonarcloud Status](https://sonarcloud.io/api/project_badges/measure?project=mikezs_AoC-2022&metric=alert_status)](https://sonarcloud.io/dashboard?id=mikezs_AoC-2022)
 
 ## Advent Of Code (AoC) 2022
 
-This are my solutions to the [Advent Of Code 2022](https://adventofcode.com/2022/) event. This year I've been playing along with [timsearle](https://github.com/timsearle/) and [SFrost007](https://github.com/SFrost007/), please check out their solutions if you're interested.
+This are my solutions to the [Advent Of Code 2022](https://adventofcode.com/2022/) event. This year I've been playing along with [timsearle](https://github.com/timsearle/), please check out their solutions if you're interested.
 
 ### Project approach
 
