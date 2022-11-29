@@ -11,6 +11,8 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
+      with:
+        fetch-depth: 0
     - name: Write config.swift
       run: |
         echo "${{ secrets.CONFIG_SWIFT }}" > Sources/AoC/config.swift
@@ -18,4 +20,17 @@ jobs:
       run: |
         xcodebuild test -scheme AoC -destination platform="macOS"
     - name: Codecov
-      run: bash <(curl -s https://codecov.io/bash)
+      run: |
+        curl https://uploader.codecov.io/verification.gpg | gpg --no-default-keyring --keyring trustedkeys.gpg --import # One-time step
+        curl -Os https://uploader.codecov.io/latest/macos/codecov
+        curl -Os https://uploader.codecov.io/latest/macos/codecov.SHA256SUM
+        curl -Os https://uploader.codecov.io/latest/macos/codecov.SHA256SUM.sig
+        gpgv codecov.SHA256SUM.sig codecov.SHA256SUM
+        shasum -a 256 -c codecov.SHA256SUM
+        chmod +x codecov
+        ./codecov -t ${CODECOV_TOKEN}
+    - name: SonarCloud Scan
+      uses: SonarSource/sonarcloud-github-action@master
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
