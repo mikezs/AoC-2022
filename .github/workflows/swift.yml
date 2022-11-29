@@ -19,5 +19,5 @@ jobs:
     - name: Run tests
       run: |
         xcodebuild test -scheme AoC -destination platform="macOS"
-   - name: Codecov
-     uses: codecov/codecov-action@v1.2.1
+    - name: Codecov
+      uses: codecov/codecov-action@v1.2.1
