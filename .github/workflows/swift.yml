@@ -21,3 +21,5 @@ jobs:
         xcodebuild test -scheme AoC -destination platform="macOS"
     - name: Codecov
       uses: codecov/codecov-action@v1.2.1
+      with:
+        token: ${{ secrets.CODECOV_TOKEN }}
