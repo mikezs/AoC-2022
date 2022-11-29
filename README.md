@@ -13,7 +13,7 @@ This swift package manager project contains my MacOS command line tool, a framew
 
 The idea is to use the example problems/solutions provided in the puzzles to do TDD, but sometimes there are no examples that allow TDD.
 
-There's a `config.swift` file hidden using git-secret. This is the format of the file:
+This project requires a `config.swift` file to be created. This is the format of the file:
 
 ```
 import Foundation
