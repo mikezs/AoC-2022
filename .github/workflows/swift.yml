@@ -27,8 +27,11 @@ jobs:
     - name: Run tests
       run: |
         xcodebuild test -scheme AoC -destination platform="macOS"
+    - name: Convert test results
+      run: |
+        bundle exec slather
     - name: Codecov
-      uses: codecov/codecov-action@master
+      uses: codecov/codecov-action@v3
     - name: SonarCloud Scan
       uses: sonarsource/sonarcloud-github-action@master
       env:
