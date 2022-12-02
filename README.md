@@ -34,3 +34,7 @@ To run day 1:
 ## Implementation notes
 
 ### Day 1
+Fairly trivial, the hardest part was parsing the input, but after that a few functional calls to spit the answer out.
+
+### Day 2
+Todays challenge was modelling the input, I'm sure there's a simpler way, but I ended up parsing everything into enums and having functions to get a score based on comparing. I wrote the truth tables out manually though and there's a way to use the `modulo` operator instead I'm certain. I might come back and try agian (Narrator: He didn't).
