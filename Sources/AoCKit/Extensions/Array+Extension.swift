@@ -1,7 +1,7 @@
 import Foundation
 
 extension Array where Element: Hashable {
-    func mode() -> [Element] {
+    var mode: [Element] {
         let count = reduce([Element: Int](), { dict, element in
             var count = dict[element] ?? 0
             count += 1
