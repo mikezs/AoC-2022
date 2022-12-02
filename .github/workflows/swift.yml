@@ -24,17 +24,17 @@ jobs:
     - name: Write config.swift
       run: |
         echo "${{ secrets.CONFIG_SWIFT }}" > Sources/AoC/config.swift
-    - name: Run tests
+    - name: Run unit tests
       run: |
         xcodebuild test -scheme AoC -destination platform="macOS"
-    - name: Convert test results
+    - name: Slather
       run: |
         bundle
-        bundle exec slather coverage --scheme AoC --cobertura-xml --output-directory . AoC.xcodeproj
+        bundle exec slather coverage --scheme AoC --cobertura-xml --output-directory . --binary-basename AoC --binary-basename AoCKit.framework AoC.xcodeproj
     - name: Codecov
       uses: codecov/codecov-action@v3
-    - name: SonarCloud Scan
-      uses: sonarsource/sonarcloud-github-action@master
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+    # - name: SonarCloud Scan
+    #   uses: sonarsource/sonarcloud-github-action@master
+    #   env:
+    #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    #     SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
