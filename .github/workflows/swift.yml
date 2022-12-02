@@ -17,7 +17,7 @@ jobs:
     - name: Cache
       uses: actions/cache@master
       with:
-        path: /Users/runner/Library/Developer/Xcode/DerivedData/**/SourcePackages/checkouts 
+        path: /Users/runner/Library/Developer/Xcode/DerivedData/**/SourcePackages/checkouts
         key: ${{ runner.os }}-spm-${{ hashFiles('**/Package.resolved') }}
         restore-keys: |
           ${{ runner.os }}-spm-
@@ -30,7 +30,7 @@ jobs:
     - name: Convert test results
       run: |
         bundle
-        bundle exec slather coverage --scheme AoC --cobertura-xml --output-directory .
+        bundle exec slather coverage --scheme AoC --cobertura-xml --output-directory . AoC.xcodeproj
     - name: Codecov
       uses: codecov/codecov-action@v3
     - name: SonarCloud Scan
