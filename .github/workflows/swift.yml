@@ -30,7 +30,7 @@ jobs:
     - name: Convert test results
       run: |
         bundle
-        bundle exec slather
+        bundle exec slather coverage --scheme AoC --cobertura-xml --output-directory .
     - name: Codecov
       uses: codecov/codecov-action@v3
     - name: SonarCloud Scan
