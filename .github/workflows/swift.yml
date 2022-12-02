@@ -29,6 +29,7 @@ jobs:
         xcodebuild test -scheme AoC -destination platform="macOS"
     - name: Convert test results
       run: |
+        bundle
         bundle exec slather
     - name: Codecov
       uses: codecov/codecov-action@v3
