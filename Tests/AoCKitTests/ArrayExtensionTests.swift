@@ -9,7 +9,7 @@ final class ArrayExtensionTests: XCTestCase {
         let equal = ["1", "1", "0", "0"]
         XCTAssertEqual(equal.mode().sorted(), ["0", "1"])
 
-        //XCTAssertEqual([].mode(), [])
+        XCTAssertEqual(Array<Int>().mode(), [])
     }
 
     func testCounts() {
