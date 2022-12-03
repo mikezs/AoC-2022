@@ -30,6 +30,7 @@
 		BE030AAE275A7C1A00FD986E /* StringRegexExtensionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE030AAD275A7C1A00FD986E /* StringRegexExtensionTests.swift */; };
 		BE47DE9C27563C4400F653B9 /* config.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE47DE9B27563C4400F653B9 /* config.swift */; };
 		BE47DEA02757897700F653B9 /* Algorithms in Frameworks */ = {isa = PBXBuildFile; productRef = BE47DE9F2757897700F653B9 /* Algorithms */; };
+		BEDB635A293B645100DF2194 /* Character+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEDB6359293B645100DF2194 /* Character+Extension.swift */; };
 		OBJ_106 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_6 /* Package.swift */; };
 		OBJ_53 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_9 /* main.swift */; };
 		OBJ_55 /* AoCKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "AoC::AoCKit::Product" /* AoCKit.framework */; };
@@ -103,6 +104,7 @@
 		BE47DE9B27563C4400F653B9 /* config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = config.swift; sourceTree = "<group>"; };
 		BE47DE9D2756CDF500F653B9 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		BEDB6357293632A200DF2194 /* swift.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; name = swift.yml; path = .github/workflows/swift.yml; sourceTree = "<group>"; };
+		BEDB6359293B645100DF2194 /* Character+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Character+Extension.swift"; sourceTree = "<group>"; };
 		OBJ_11 /* Day.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Day.swift; sourceTree = "<group>"; };
 		OBJ_12 /* Day1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Day1.swift; sourceTree = "<group>"; };
 		OBJ_13 /* Day10.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Day10.swift; sourceTree = "<group>"; };
@@ -172,6 +174,7 @@
 				BE030AA2275A720C00FD986E /* Dictionary+Extension.swift */,
 				BE030AA5275A727200FD986E /* Array+Extension.swift */,
 				BE030AA7275A729B00FD986E /* String+Regex+Extension.swift */,
+				BEDB6359293B645100DF2194 /* Character+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -424,6 +427,7 @@
 				OBJ_79 /* Day24.swift in Sources */,
 				OBJ_80 /* Day25.swift in Sources */,
 				BE030AA1275A6FE700FD986E /* String+Extension.swift in Sources */,
+				BEDB635A293B645100DF2194 /* Character+Extension.swift in Sources */,
 				OBJ_81 /* Day3.swift in Sources */,
 				OBJ_82 /* Day4.swift in Sources */,
 				OBJ_83 /* Day5.swift in Sources */,

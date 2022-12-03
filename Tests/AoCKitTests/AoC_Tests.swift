@@ -49,14 +49,20 @@ C Z
 
     // MARK: - Day 3
     let day3input = """
+vJrwpWtwJgWrhcsFMMfFFhFp
+jqHRNqRjqzjGDLGLrsFMfFZSrLrFZsSL
+PmmdzqPrVvPwwTWBwg
+wMqvLMZHhHMvwLHjbvcjnnSBnvTQFn
+ttgJtRGJQctTZtZT
+CrZsJsPPZsGzwwsLwLmpwMDw
 """
 
     func testDay3Part1() {
-        XCTAssertEqual(Day3(input: day3input).part1(), 0)
+        XCTAssertEqual(Day3(input: day3input).part1(), 157)
     }
 
     func testDay3Part2() {
-        XCTAssertEqual(Day3(input: day3input).part2(), 0)
+        XCTAssertEqual(Day3(input: day3input).part2(), 70)
     }
 
     // MARK: - Day 4

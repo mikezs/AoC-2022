@@ -38,3 +38,6 @@ Fairly trivial, the hardest part was parsing the input, but after that a few fun
 
 ### Day 2
 Todays challenge was modelling the input, I'm sure there's a simpler way, but I ended up parsing everything into enums and having functions to get a score based on comparing. I wrote the truth tables out manually though and there's a way to use the `modulo` operator instead I'm certain. I might come back and try agian (Narrator: He didn't).
+
+### Day 3
+I had to write a few extensions to get the syntax that let me easily work out what I was doing, but after I'd done that I got some nice functional chains to work with to get the answer. I refactored many times to get types to resolve and I think there's too many force unwraps for my liking. Solutions worked first time though 🎉
