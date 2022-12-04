@@ -7,13 +7,13 @@ public final class Day4: Day {
     public init(input: String) {
         self.input = input
             .trimmedLines
-            .compactMap {
-                let ranges = $0.split(separator: ",")
-                let range1 = ranges[0].split(separator: "-")
-                let range2 = ranges[1].split(separator: "-")
-                let final: (ClosedRange<Int>, ClosedRange<Int>) = (Int(range1[0])!...Int(range1[1])!, Int(range2[0])!...Int(range2[1])!)
-                return final
+            .map {
+                $0
+                    .split(separator: ",")
+                    .map { $0.split(separator: "-").map { Int($0)! } }
+                    .map { $0[0]...$0[1] }
             }
+            .map { ($0[0], $0[1]) }
     }
 
     public func part1() -> Int {
@@ -27,12 +27,7 @@ public final class Day4: Day {
 
     public func part2() -> Int {
         input
-            .filter {
-                $0.0.contains($0.1.lowerBound) ||
-                $0.0.contains($0.1.upperBound) ||
-                $0.1.contains($0.0.lowerBound) ||
-                $0.1.contains($0.0.lowerBound)
-            }
+            .filter { $0.0.overlaps($0.1) }
             .count
     }
 }
