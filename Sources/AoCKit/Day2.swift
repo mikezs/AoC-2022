@@ -1,18 +1,36 @@
 import Algorithms
 import Foundation
 
+func ==(lhs: Day2.RoundResult.Error, rhs: Day2.RoundResult.Error) -> Bool {
+    switch (lhs, rhs) {
+    case let (.invalidResult(a), .invalidResult(b)): return a == b
+    }
+}
+
+func ==(lhs: Day2.Move.Error, rhs: Day2.Move.Error) -> Bool {
+    switch (lhs, rhs) {
+    case let (.invalidOpponentMove(a), .invalidOpponentMove(b)): return a == b
+    case let (.invalidPlayerMove(a), .invalidPlayerMove(b)): return a == b
+    default: return false
+    }
+}
+
 public final class Day2: Day {
     enum RoundResult: Int {
+        enum Error: Swift.Error, Equatable {
+            case invalidResult(String)
+        }
+
         case lose = 0
         case draw = 3
         case win = 6
 
-        static func result(_ result: String) -> RoundResult {
+        static func result(_ result: String) throws -> RoundResult {
             switch result.lowercased() {
             case "x": return .lose
             case "y": return .draw
             case "z": return .win
-            default: fatalError("Invalid result: \(result)")
+            default: throw Error.invalidResult(result)
             }
         }
 
@@ -30,25 +48,30 @@ public final class Day2: Day {
     }
 
     enum Move: Int {
+        enum Error: Swift.Error, Equatable {
+            case invalidOpponentMove(String)
+            case invalidPlayerMove(String)
+        }
+
         case rock = 1
         case paper = 2
         case scissors = 3
 
-        static func from(opponent: String) -> Move {
+        static func from(opponent: String) throws -> Move {
             switch opponent.lowercased() {
             case "a": return .rock
             case "b": return .paper
             case "c": return .scissors
-            default: fatalError("Invalid opponent move: \(opponent)")
+            default: throw Error.invalidOpponentMove(opponent)
             }
         }
 
-        static func from(player: String) -> Move {
+        static func from(player: String) throws -> Move {
             switch player.lowercased() {
             case "x": return .rock
             case "y": return .paper
             case "z": return .scissors
-            default: fatalError("Invalid player move: \(player)")
+            default: throw Error.invalidPlayerMove(player)
             }
         }
 
@@ -68,17 +91,17 @@ public final class Day2: Day {
     let input: [(Move, Move)]
     let input2: [(Move, RoundResult)]
 
-    public init(input: String) {
-        self.input = input.trimmedLines.compactMap {
+    public init(input: String) throws {
+        self.input = try input.trimmedLines.compactMap {
             let players = $0.split(separator: " ")
-            return (Move.from(opponent: String(players[0])),
-                    Move.from(player: String(players[1])))
+            return (try Move.from(opponent: String(players[0])),
+                    try Move.from(player: String(players[1])))
         }
 
-        self.input2 = input.trimmedLines.compactMap {
+        self.input2 = try input.trimmedLines.compactMap {
             let players = $0.split(separator: " ")
-            return (Move.from(opponent: String(players[0])),
-                    RoundResult.result(String(players[1])))
+            return (try Move.from(opponent: String(players[0])),
+                    try RoundResult.result(String(players[1])))
         }
     }
 

@@ -27,6 +27,7 @@ final class AoCTests: XCTestCase {
 
     func testDay1Part1() {
         XCTAssertEqual(Day1(input: day1Input).part1(), 24000)
+        XCTAssertEqual(Day1(input: "a").part1(), 0)
     }
 
     func testDay1Part2() {
@@ -40,11 +41,22 @@ B X
 C Z
 """
 
-    func testDay2Part1() {
-        XCTAssertEqual(Day2(input: day2Input).part1(), 15)
+    func testDay2Part1() throws {
+        XCTAssertEqual(try Day2(input: day2Input).part1(), 15)
+
+        XCTAssertThrowsError(try Day2(input: "D X").part1()) { error in
+            XCTAssertEqual(error as! Day2.Move.Error, Day2.Move.Error.invalidOpponentMove("D"))
+        }
+
+        XCTAssertThrowsError(try Day2(input: "A W").part1()) { error in
+            XCTAssertEqual(error as! Day2.Move.Error, Day2.Move.Error.invalidPlayerMove("W"))
+        }
+
+        XCTAssertNotEqual(Day2.Move.Error.invalidPlayerMove("A"), Day2.Move.Error.invalidOpponentMove("A"))
     }
+
     func testDay2Part2() {
-        XCTAssertEqual(Day2(input: day2Input).part2(), 12)
+        XCTAssertEqual(try Day2(input: day2Input).part2(), 12)
     }
 
     // MARK: - Day 3

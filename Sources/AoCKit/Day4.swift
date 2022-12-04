@@ -1,6 +1,10 @@
 import Algorithms
 import Foundation
 
+extension String {
+    //func splitMap(_ separator: String, map: )
+}
+
 public final class Day4: Day {
     let input: [(ClosedRange<Int>, ClosedRange<Int>)]
 

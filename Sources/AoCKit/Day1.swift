@@ -19,7 +19,7 @@ public final class Day1: Day {
     }
 
     public func part1() -> Int {
-        input.max() ?? 0
+        input.max()!
     }
 
     public func part2() -> Int {

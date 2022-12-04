@@ -13,13 +13,15 @@ extension Array where Element == Day3.Rucksack {
 
 fileprivate extension Character {
     var priority: Int {
+        var priority = 0
+
         if Character(uppercased()) == self {
-            return self.ord! - "A".ord! + 26 + 1
+            priority = ord! - "A".ord! + 26 + 1
         } else if Character(lowercased()) == self {
-            return self.ord! - "a".ord! + 1
-        } else {
-            return 0
+            priority = ord! - "a".ord! + 1
         }
+
+        return priority
     }
 }
 
