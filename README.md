@@ -41,3 +41,6 @@ Todays challenge was modelling the input, I'm sure there's a simpler way, but I 
 
 ### Day 3
 I had to write a few extensions to get the syntax that let me easily work out what I was doing, but after I'd done that I got some nice functional chains to work with to get the answer. I refactored many times to get types to resolve and I think there's too many force unwraps for my liking. Solutions worked first time though 🎉
+
+### Day 4
+I basically exploited Swift's `Range`s for this, so it was very easy once I'd parsed the input. I'd like to spend some more time parsing the input using functional chains rather than using a lot of temporary variables. 

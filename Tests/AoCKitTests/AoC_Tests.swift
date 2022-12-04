@@ -67,14 +67,20 @@ CrZsJsPPZsGzwwsLwLmpwMDw
 
     // MARK: - Day 4
     let day4Input = """
+2-4,6-8
+2-3,4-5
+5-7,7-9
+2-8,3-7
+6-6,4-6
+2-6,4-8
 """
 
     func testDay4Part1() {
-        XCTAssertEqual(Day4(input: day4Input).part1(), 0)
+        XCTAssertEqual(Day4(input: day4Input).part1(), 2)
     }
 
     func testDay4Part2() {
-        XCTAssertEqual(Day4(input: day4Input).part2(), 0)
+        XCTAssertEqual(Day4(input: day4Input).part2(), 4)
     }
 
 // MARK: - Day 5
