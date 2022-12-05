@@ -1,5 +1,13 @@
 import Foundation
 
+extension Array {
+    mutating func append(_ optionalElement: Element?) {
+        if let element = optionalElement {
+            append(element)
+        }
+    }
+}
+
 extension Array where Element: Hashable {
     var mode: [Element] {
         let count = reduce([Element: Int](), { dict, element in
