@@ -44,3 +44,12 @@ I had to write a few extensions to get the syntax that let me easily work out wh
 
 ### Day 4
 I basically exploited Swift's `Range`s for this, so it was very easy once I'd parsed the input. I'd like to spend some more time parsing the input using functional chains rather than using a lot of temporary variables.  Update: Simon put me onto a built in function for Part 2, and I tried to implement functional chains, but initializing the tuple was tricky. Update 2: After reading Tim's implementation I have now refactored it into barely understandable functional chains. Perfect.
+
+### Day 5
+Todays was tricky parsing of the input and then the output was fairly trivial to get. Swift doesn't have the ability to split with a `String`, only a `Character` or `CharacterSet` so I used a temporary variable to flag if I encountered an empty line for speed. Then I reversed the stacks lines, `pop`ed the first line to get the count of stacks and initialised my 2 dimensional array, then used `chunked` to get each crate, checked if the Character at index 1 wasn't empty and built up an array for each stack. Moves were simply parsed into an `struct` so they could be accessed easily with names and a constructor to convert a string.
+
+ The first part was then creating a mutable copy of the stacks, loop to move each crate and then build the output string (just realising I should have used `joined(by:)`).
+ 
+ The second part was building an array of crates to move, reversed (so the last removed one goes back on last too) and then added back on to the appropriate stack.
+ 
+ This is the first question I've seen that has a String as the output so I've refactored my project to have a generic `Day` protocol and an `associatedType` for the output (which is inferred from the `part1()` and `part2()` return types).

@@ -97,14 +97,23 @@ CrZsJsPPZsGzwwsLwLmpwMDw
 
 // MARK: - Day 5
     let day5Input = """
+    [D]
+[N] [C]
+[Z] [M] [P]
+ 1   2   3
+
+move 1 from 2 to 1
+move 3 from 1 to 3
+move 2 from 2 to 1
+move 1 from 1 to 2
 """
 
     func testDay5Part1() {
-        XCTAssertEqual(Day5(input: day5Input).part1(), 0)
+        XCTAssertEqual(Day5(input: day5Input).part1(), "CMZ")
     }
 
     func testDay5Part2() {
-        XCTAssertEqual(Day5(input: day5Input).part2(), 0)
+        XCTAssertEqual(Day5(input: day5Input).part2(), "MCD")
     }
 
     // MARK: - Day 6
