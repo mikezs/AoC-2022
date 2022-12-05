@@ -53,3 +53,5 @@ Todays was tricky parsing of the input and then the output was fairly trivial to
  The second part was building an array of crates to move, reversed (so the last removed one goes back on last too) and then added back on to the appropriate stack.
  
  This is the first question I've seen that has a String as the output so I've refactored my project to have a generic `Day` protocol and an `associatedType` for the output (which is inferred from the `part1()` and `part2()` return types).
+
+**Update:** I refactored my parsing to be a lot more functional and use less temporary variables. I also removed the ducplication for the final parts and moved the core logic to a closure
