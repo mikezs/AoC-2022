@@ -2,6 +2,16 @@ import XCTest
 @testable import AoCKit
 
 final class ArrayExtensionTests: XCTestCase {
+    func testAddOptionalElement() {
+        var empty: [Int] = []
+        empty.append(nil)
+        XCTAssertEqual(empty, [Int]())
+
+        empty = []
+        empty.append(.some(1))
+        XCTAssertEqual(empty, [1])
+    }
+
     func testMode() {
         let ones = ["1", "1", "1", "0"]
         XCTAssertEqual(ones.mode, ["1"])
