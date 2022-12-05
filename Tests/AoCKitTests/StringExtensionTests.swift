@@ -40,6 +40,21 @@ three
         XCTAssertFalse("This is not all lowercase".isLowercase)
     }
 
+    func testIsUppercase() {
+        XCTAssertTrue("1".isUppercase)
+        XCTAssertTrue("A".isUppercase)
+        XCTAssertTrue("HELLO THIS IS UPPERCASE".isUppercase)
+        XCTAssertFalse("a".isUppercase)
+        XCTAssertFalse("This Is Not All Uppercase".isUppercase)
+    }
+
+    func testOrd() {
+        XCTAssertEqual("A".ord, 65)
+        XCTAssertEqual("a".ord, 97)
+        XCTAssertEqual("A long string still only gets the first character".ord, 65)
+        XCTAssertNil("🎉".ord)
+    }
+
     func testReplaceIndexWithCharacter() {
         XCTAssertEqual("0123456789".replacing(at: 1, with: "x"), "0x23456789")
     }
