@@ -122,14 +122,27 @@ move 1 from 1 to 2
 
     // MARK: - Day 6
     let day6Input = """
+mjqjpqmgbljsphdztnvjfqwrcgsmlb
 """
 
     func testDay6Part1() {
-        XCTAssertEqual(Day6(input: day6Input).part1(), 0)
+        XCTAssertEqual(Day6(input: day6Input).part1(), 7)
+        XCTAssertEqual(Day6(input: "bvwbjplbgvbhsrlpgdmjqwftvncz").part1(), 5)
+        XCTAssertEqual(Day6(input: "nppdvjthqldpwncqszvftbrmjlhg").part1(), 6)
+        XCTAssertEqual(Day6(input: "nznrnfrfntjfmvfwmzdfjlvtqnbhcprsg").part1(), 10)
+        XCTAssertEqual(Day6(input: "zcfzfwzzqfrljwzlrfnpqdbhtmscgvjw").part1(), 11)
+        XCTAssertEqual(Day6(input: "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa").part1(), -1)
+        XCTAssertEqual(Day6(input: "").part1(), -1)
     }
 
     func testDay6Part2() {
-        XCTAssertEqual(Day6(input: day6Input).part2(), 0)
+        XCTAssertEqual(Day6(input: day6Input).part2(), 19)
+        XCTAssertEqual(Day6(input: "bvwbjplbgvbhsrlpgdmjqwftvncz").part2(), 23)
+        XCTAssertEqual(Day6(input: "nppdvjthqldpwncqszvftbrmjlhg").part2(), 23)
+        XCTAssertEqual(Day6(input: "nznrnfrfntjfmvfwmzdfjlvtqnbhcprsg").part2(), 29)
+        XCTAssertEqual(Day6(input: "zcfzfwzzqfrljwzlrfnpqdbhtmscgvjw").part2(), 26)
+        XCTAssertEqual(Day6(input: "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa").part2(), -1)
+        XCTAssertEqual(Day6(input: "").part2(), -1)
     }
 
     // MARK: - Day 7

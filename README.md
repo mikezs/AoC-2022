@@ -55,3 +55,9 @@ Todays was tricky parsing of the input and then the output was fairly trivial to
  This is the first question I've seen that has a String as the output so I've refactored my project to have a generic `Day` protocol and an `associatedType` for the output (which is inferred from the `part1()` and `part2()` return types).
 
 **Update:** I refactored my parsing to be a lot more functional and use less temporary variables. I also removed the ducplication for the final parts and moved the core logic to a closure
+
+### Day 6
+
+Using Swift's `Range`s and `Set`s I was able to do this in just a few lines. Made a `Range` of numbers and moved through the `Character` array, converted the `Array<Character>` into a set and checked if it was still the same length. Added the length onto the current offset and returned it.
+
+With my extra spare time I added some sanity checks to the initialization to cope with empty and input with no solution.
