@@ -5,7 +5,7 @@
 
 ## Advent Of Code (AoC) 2022
 
-This are my solutions to the [Advent Of Code 2022](https://adventofcode.com/2022/) event. This year I've been playing along with [timsearle](https://github.com/timsearle/), please check out their solutions if you're interested.
+This are my solutions to the [Advent Of Code 2022](https://adventofcode.com/2022/) event. This year I've been playing along with [timsearle](https://github.com/timsearle/) and [Sfrost007](https://github.com/sfrost007/), please check out their solutions if you're interested.
 
 ### Project approach
 
@@ -15,7 +15,7 @@ The idea is to use the example problems/solutions provided in the puzzles to do 
 
 This project requires a `config.swift` file to be created. This is the format of the file:
 
-```
+```swift
 import Foundation
 
 enum Config {
