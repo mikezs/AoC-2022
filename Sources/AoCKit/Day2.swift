@@ -1,13 +1,13 @@
 import Algorithms
 import Foundation
 
-func ==(lhs: Day2.RoundResult.Error, rhs: Day2.RoundResult.Error) -> Bool {
+func == (lhs: Day2.RoundResult.Error, rhs: Day2.RoundResult.Error) -> Bool {
     switch (lhs, rhs) {
     case let (.invalidResult(a), .invalidResult(b)): return a == b
     }
 }
 
-func ==(lhs: Day2.Move.Error, rhs: Day2.Move.Error) -> Bool {
+func == (lhs: Day2.Move.Error, rhs: Day2.Move.Error) -> Bool {
     switch (lhs, rhs) {
     case let (.invalidOpponentMove(a), .invalidOpponentMove(b)): return a == b
     case let (.invalidPlayerMove(a), .invalidPlayerMove(b)): return a == b

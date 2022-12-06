@@ -1,10 +1,6 @@
 import Algorithms
 import Foundation
 
-extension String {
-    //func splitMap(_ separator: String, map: )
-}
-
 public final class Day4: Day {
     let input: [(ClosedRange<Int>, ClosedRange<Int>)]
 
@@ -14,8 +10,8 @@ public final class Day4: Day {
             .map {
                 $0
                     .split(separator: ",")
-                    .map { $0.split(separator: "-").map { Int($0)! } }
-                    .map { $0[0]...$0[1] }
+                    .map { $0.split(separator: "-").compactMap { Int($0) } }
+                    .map { $0[0] ... $0[1] }
             }
             .map { ($0[0], $0[1]) }
     }
