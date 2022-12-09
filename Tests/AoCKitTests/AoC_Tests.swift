@@ -182,14 +182,19 @@ $ ls
 
     // MARK: - Day 8
     let day8Input = """
+30373
+25512
+65332
+33549
+35390
 """
 
     func testDay8Part1() {
-        XCTAssertEqual(Day8(input: day8Input).part1(), 0)
+        XCTAssertEqual(Day8(input: day8Input).part1(), 21)
     }
 
     func testDay8Part2() {
-        XCTAssertEqual(Day8(input: day8Input).part2(), 0)
+        XCTAssertEqual(Day8(input: day8Input).part2(), 8)
     }
 
     // MARK: - Day 9
