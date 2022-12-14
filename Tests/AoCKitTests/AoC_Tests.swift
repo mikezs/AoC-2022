@@ -262,10 +262,21 @@ R 2
     }
 
     let day14Input = """
+498,4 -> 498,6 -> 496,6
+503,4 -> 502,4 -> 502,9 -> 494,9
 """
 
     func testDay14Part1() {
-        XCTAssertEqual(Day14(input: day14Input).part1(), 0)
+        XCTAssertTrue(Day14(input: day14Input).wall(at: (494,9)))
+        XCTAssertTrue(Day14(input: day14Input).wall(at: (503,4)))
+        XCTAssertTrue(Day14(input: day14Input).wall(at: (500,9)))
+        XCTAssertTrue(Day14(input: day14Input).wall(at: (498,5)))
+        XCTAssertTrue(Day14(input: day14Input).wall(at: (498,6)))
+        XCTAssertFalse(Day14(input: day14Input).wall(at: (494,8)))
+        XCTAssertFalse(Day14(input: day14Input).wall(at: (494,10)))
+        XCTAssertFalse(Day14(input: day14Input).wall(at: (504,4)))
+        XCTAssertFalse(Day14(input: day14Input).wall(at: (503,5)))
+        XCTAssertEqual(Day14(input: day14Input).part1(), 24)
     }
 
     func testDay14Part2() {
