@@ -267,20 +267,23 @@ R 2
 """
 
     func testDay14Part1() {
-        XCTAssertTrue(Day14(input: day14Input).wall(at: (494,9)))
-        XCTAssertTrue(Day14(input: day14Input).wall(at: (503,4)))
-        XCTAssertTrue(Day14(input: day14Input).wall(at: (500,9)))
-        XCTAssertTrue(Day14(input: day14Input).wall(at: (498,5)))
-        XCTAssertTrue(Day14(input: day14Input).wall(at: (498,6)))
-        XCTAssertFalse(Day14(input: day14Input).wall(at: (494,8)))
-        XCTAssertFalse(Day14(input: day14Input).wall(at: (494,10)))
-        XCTAssertFalse(Day14(input: day14Input).wall(at: (504,4)))
-        XCTAssertFalse(Day14(input: day14Input).wall(at: (503,5)))
+        XCTAssertTrue(Day14(input: day14Input).walls.contains(Position(x: 494, y: 9)))
+        XCTAssertTrue(Day14(input: day14Input).walls.contains(Position(x: 503, y: 4)))
+        XCTAssertTrue(Day14(input: day14Input).walls.contains(Position(x: 500, y: 9)))
+        XCTAssertTrue(Day14(input: day14Input).walls.contains(Position(x: 498, y: 5)))
+        XCTAssertTrue(Day14(input: day14Input).walls.contains(Position(x: 498, y: 6)))
+        XCTAssertFalse(Day14(input: day14Input).walls.contains(Position(x: 494, y: 8)))
+        XCTAssertFalse(Day14(input: day14Input).walls.contains(Position(x: 494, y: 10)))
+        XCTAssertFalse(Day14(input: day14Input).walls.contains(Position(x: 504, y: 4)))
+        XCTAssertFalse(Day14(input: day14Input).walls.contains(Position(x: 503, y: 5)))
+
+        XCTAssertEqual(Day14(input: day14Input).lowestY, 9)
+
         XCTAssertEqual(Day14(input: day14Input).part1(), 24)
     }
 
     func testDay14Part2() {
-        XCTAssertEqual(Day14(input: day14Input).part2(), 0)
+        XCTAssertEqual(Day14(input: day14Input).part2(), 93)
     }
 
     let day15Input = """
