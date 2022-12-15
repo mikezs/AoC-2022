@@ -61,3 +61,6 @@ Todays was tricky parsing of the input and then the output was fairly trivial to
 Using Swift's `Range`s and `Set`s I was able to do this in just a few lines. Made a `Range` of numbers and moved through the `Character` array, converted the `Array<Character>` into a set and checked if it was still the same length. Added the length onto the current offset and returned it.
 
 With my extra spare time I added some sanity checks to the initialization to cope with empty and input with no solution.
+
+### Day 14
+Really enjoyable one today, I made a naieve solution to part 1 and it only finished in good time when I ran it as release (optimised). I refactored it so the lookups were hashed (in a `Set`) and it was very quick and then part 2 was as simple as adding an extra flag in my lookup function.
