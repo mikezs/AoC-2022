@@ -31,6 +31,18 @@ extension String {
 
         return result
     }
+
+    func removingLast() -> String {
+        var string = self
+        string.removeLast()
+        return string
+    }
+
+    func removingFirst() -> String {
+        var string = self
+        string.removeFirst()
+        return string
+    }
 }
 
 // https://stackoverflow.com/a/24144365

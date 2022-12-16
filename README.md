@@ -64,3 +64,8 @@ With my extra spare time I added some sanity checks to the initialization to cop
 
 ### Day 14
 Really enjoyable one today, I made a naieve solution to part 1 and it only finished in good time when I ran it as release (optimised). I refactored it so the lookups were hashed (in a `Set`) and it was very quick and then part 2 was as simple as adding an extra flag in my lookup function.
+
+### Day 15
+Part 1 was a "ignore the visual and do the maths" question, although the visuals provided in the example really helped with solving!
+
+Part 2 was a bit more challenging because the number of loops goes from about 10 million to many trillions. I worked out (after running my naieve solution for almost an hour) that the point we want to find will be at the manhatten distance + 1 from one of the sensors and we can just loop round each sensor to find which point isn't inside any others. Once it compiled it worked first time! 🎉
