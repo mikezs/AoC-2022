@@ -240,10 +240,15 @@ R 2
     }
 
     let day12Input = """
+Sabqponm
+abcryxxl
+accszExk
+acctuvwj
+abdefghi
 """
 
     func testDay12Part1() {
-        XCTAssertEqual(Day12(input: day12Input).part1(), 0)
+        XCTAssertEqual(Day12(input: day12Input).part1(), 31)
     }
 
     func testDay12Part2() {
