@@ -1,5 +1,11 @@
 import Foundation
 
+extension Collection {
+    subscript (safe index: Index) -> Element? {
+        return indices.contains(index) ? self[index] : nil
+    }
+}
+
 extension Array {
     mutating func append(_ optionalElement: Element?) {
         if let element = optionalElement {

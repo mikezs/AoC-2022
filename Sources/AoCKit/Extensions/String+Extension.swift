@@ -48,4 +48,5 @@ extension String {
 // https://stackoverflow.com/a/24144365
 extension StringProtocol {
     subscript(offset: Int) -> Character { self[index(startIndex, offsetBy: offset)] }
+    subscript(safe offset: Int) -> Character? { offset >= 0 && indices.contains(index(startIndex, offsetBy: offset)) ? self[index(startIndex, offsetBy: offset)] : nil }
 }
