@@ -71,29 +71,21 @@ public final class Day17: Day {
 
             if canMove {
                 if wind {
-                    //print("Pushed left")
                     return (x - 1, y)
                 } else {
-                    //print("Pushed right")
                     return (x + 1, y)
                 }
             }
 
-            //print("Pushed \(wind ? "left" : "right"), nothing happend")
             return (x, y)
         }
 
-        func apply(to stack: inout [String], at x: Int, y: Int) -> Int {
-            var height = 0
-
+        func apply(to stack: inout [String], at x: Int, y: Int) {
             for position in positions {
                 let row = y + position.1
 
                 stack[row] = stack[row].replacing(at: x + position.0, with: "#")
-                height = max(height, row)
             }
-
-            return height + 1
         }
     }
 
@@ -109,10 +101,8 @@ public final class Day17: Day {
         var piece = Piece.order[0]
         var windPosition = 0
 
-        (0 ... 2022).forEach { rock in
+        (0 ..< 2022).forEach { rock in
             piece = Piece.order[rock % Piece.order.count]
-
-            //print("Rock begins")
 
             var anchorX = 2
             var anchorY = height + piece.height + 2
@@ -127,24 +117,20 @@ public final class Day17: Day {
                 anchorY = result.1
                 windPosition = (windPosition + 1) % input.count
 
-                //print("Falls 1 unit")
                 anchorY -= 1
             } while !piece.landed(anchorX, anchorY, &stack)
 
             anchorY += 1
 
-            //print("Comes to rest")
+            piece.apply(to: &stack, at: anchorX, y: anchorY)
 
-            height = piece.apply(to: &stack, at: anchorX, y: anchorY)
-
-            print("Piece \(rock)")
-            stack.reversed().forEach { print($0) }
+            height = (0..<stack.count).reversed().first { stack[$0].contains("#") }! + 1
         }
 
         return height
     }
 
     public func part2() -> Int {
-        return 0
+        0
     }
 }
