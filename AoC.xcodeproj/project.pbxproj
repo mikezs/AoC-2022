@@ -32,6 +32,8 @@
 		BE47DEA02757897700F653B9 /* Algorithms in Frameworks */ = {isa = PBXBuildFile; productRef = BE47DE9F2757897700F653B9 /* Algorithms */; };
 		BEDB635A293B645100DF2194 /* Character+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEDB6359293B645100DF2194 /* Character+Extension.swift */; };
 		BEE212F4293D2E3F00975E92 /* ChracterExtensionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE212F3293D2E3F00975E92 /* ChracterExtensionTests.swift */; };
+		BEE212F9294C9A0D00975E92 /* Graph.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE212F8294C9A0D00975E92 /* Graph.swift */; };
+		BEE212FC294CA43B00975E92 /* GraphTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE212FA294C9A2500975E92 /* GraphTests.swift */; };
 		OBJ_106 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_6 /* Package.swift */; };
 		OBJ_53 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_9 /* main.swift */; };
 		OBJ_55 /* AoCKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "AoC::AoCKit::Product" /* AoCKit.framework */; };
@@ -107,6 +109,8 @@
 		BEDB6357293632A200DF2194 /* swift.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; name = swift.yml; path = .github/workflows/swift.yml; sourceTree = "<group>"; };
 		BEDB6359293B645100DF2194 /* Character+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Character+Extension.swift"; sourceTree = "<group>"; };
 		BEE212F3293D2E3F00975E92 /* ChracterExtensionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChracterExtensionTests.swift; sourceTree = "<group>"; };
+		BEE212F8294C9A0D00975E92 /* Graph.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Graph.swift; sourceTree = "<group>"; };
+		BEE212FA294C9A2500975E92 /* GraphTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphTests.swift; sourceTree = "<group>"; };
 		OBJ_11 /* Day.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Day.swift; sourceTree = "<group>"; };
 		OBJ_12 /* Day1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Day1.swift; sourceTree = "<group>"; };
 		OBJ_13 /* Day10.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Day10.swift; sourceTree = "<group>"; };
@@ -181,9 +185,18 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		BEE212F7294C99FD00975E92 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				BEE212F8294C9A0D00975E92 /* Graph.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
 		OBJ_10 /* AoCKit */ = {
 			isa = PBXGroup;
 			children = (
+				BEE212F7294C99FD00975E92 /* Utilities */,
 				BE030A9E275A6F5D00FD986E /* Extensions */,
 				OBJ_11 /* Day.swift */,
 				OBJ_12 /* Day1.swift */,
@@ -234,6 +247,7 @@
 				BE030AA9275A731C00FD986E /* ArrayExtensionTests.swift */,
 				BE030AAD275A7C1A00FD986E /* StringRegexExtensionTests.swift */,
 				OBJ_42 /* XCTestManifests.swift */,
+				BEE212FA294C9A2500975E92 /* GraphTests.swift */,
 			);
 			name = AoCKitTests;
 			path = Tests/AoCKitTests;
@@ -431,6 +445,7 @@
 				OBJ_80 /* Day25.swift in Sources */,
 				BE030AA1275A6FE700FD986E /* String+Extension.swift in Sources */,
 				BEDB635A293B645100DF2194 /* Character+Extension.swift in Sources */,
+				BEE212F9294C9A0D00975E92 /* Graph.swift in Sources */,
 				OBJ_81 /* Day3.swift in Sources */,
 				OBJ_82 /* Day4.swift in Sources */,
 				OBJ_83 /* Day5.swift in Sources */,
@@ -445,6 +460,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 0;
 			files = (
+				BEE212FC294CA43B00975E92 /* GraphTests.swift in Sources */,
 				OBJ_95 /* AoC_Tests.swift in Sources */,
 				BEE212F4293D2E3F00975E92 /* ChracterExtensionTests.swift in Sources */,
 				BE030AAE275A7C1A00FD986E /* StringRegexExtensionTests.swift in Sources */,
