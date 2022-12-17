@@ -362,10 +362,11 @@ Valve JJ has flow rate=21; tunnel leads to valve II
     }
 
     let day17Input = """
+>>><<><>><<<>><>>><<<>>><<<><<<>><>><<>>
 """
 
     func testDay17Part1() {
-        XCTAssertEqual(Day17(input: day17Input).part1(), 0)
+        XCTAssertEqual(Day17(input: day17Input).part1(), 3068)
     }
 
     func testDay17Part2() {
