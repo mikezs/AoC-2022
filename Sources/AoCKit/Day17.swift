@@ -19,24 +19,79 @@ public final class Day17: Day {
             }
         }
 
+        /// The first item in the array is a left-most and last is a right-most
+        var positions: [(Int,Int)] {
+            switch self {
+            case .dash: return [(0,0),(1,0),(2,0),(3,0)]
+            case .plus: return [(0,-1),(1,0),(1,-1),(1,-2),(2,-1)]
+            case .angle: return [(0,-2),(1,-2),(2,-2),(2,-1),(2,0)]
+            case .line: return [(0,0),(0,-1),(0,-2),(0,-3)]
+            case .square: return [(0,0),(0,-1),(1,0),(1,-1)]
+            }
+        }
+
         static var order: [Piece] {
             [.dash, .plus, .angle, .line, .square]
         }
 
         func landed(_ x: Int, _ y: Int, _ stack: inout [String]) -> Bool {
-            true
+            for position in positions {
+                if y + position.1 - 1 < 0 {
+                    return true
+                }
+
+                if stack[safe: y + position.1 - 1]?[x + position.0] != "." {
+                    return true
+                }
+            }
+
+            return false
         }
 
-        func canMoveSide(toLeft wind: Bool, x: Int, y: Int, _ stack: inout [String]) -> Bool {
-            true
-        }
+        func moveSide(toLeft wind: Bool, x: Int, y: Int, _ stack: inout [String]) -> (Int, Int) {
+            var canMove = true
 
-        func canMoveDown(x: Int, y: Int, _ stack: inout [String]) -> Bool {
-            true
+            for position in positions where canMove {
+                if wind, x - position.0 - 1 < 0 {
+                    canMove = false
+                }
+
+                if !wind, x + position.0 + 1 > 6 {
+                    canMove = false
+                }
+
+                if wind, stack[y][safe: x - position.0 - 1] != "." {
+                    canMove = false
+                }
+
+                if !wind, stack[y][safe: x + position.0 + 1] != "." {
+                    canMove = false
+                }
+            }
+
+            if canMove {
+                if wind {
+                    return (x - 1, y)
+                } else {
+                    return (x + 1, y)
+                }
+            }
+
+            return (x, y)
         }
 
         func apply(to stack: inout [String], at x: Int, y: Int) -> Int {
-            3068
+            var height = 0
+
+            for position in positions {
+                let row = y + position.1
+                let line = stack[row]
+
+                stack[row] = line.replacing(at: x + position.0, with: "#")
+                height = max(height, row)
+            }
+
+            return height
         }
     }
 
@@ -56,31 +111,31 @@ public final class Day17: Day {
             piece = Piece.order[rock % Piece.order.count]
 
             var anchorX = 2
-            var anchorY = height + piece.height + 3
+            var anchorY = height + piece.height + 2
 
-            if stack.count < anchorY {
-                stack.append("       ")
+            while stack.count < anchorY + 1 {
+                stack.append(".......")
             }
 
             while !piece.landed(anchorX, anchorY, &stack) {
                 let wind = input[windPosition]
 
-                if piece.canMoveSide(toLeft: wind, x: anchorX, y: anchorY, &stack) {
-                    if wind {
-                        anchorX -= 1
-                    } else {
-                        anchorX += 1
-                    }
+                let result = piece.moveSide(toLeft: wind, x: anchorX, y: anchorY, &stack)
+
+                anchorX = result.0
+                anchorY = result.1
+
+                if !piece.landed(anchorX, anchorY, &stack) {
+                    anchorY -= 1
                 }
 
-                if piece.canMoveDown(x: anchorX, y: anchorY, &stack) {
-                    anchorY += 1
-                }
-
-                windPosition += 1
+                windPosition = (windPosition + 1) % input.count
             }
 
             height = piece.apply(to: &stack, at: anchorX, y: anchorY)
+
+            print("Piece \(rock)")
+            stack.reversed().forEach { print($0) }
         }
 
         return height
