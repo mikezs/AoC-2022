@@ -36,11 +36,11 @@ public final class Day17: Day {
 
         func landed(_ x: Int, _ y: Int, _ stack: inout [String]) -> Bool {
             for position in positions {
-                if y + position.1 - 1 < 0 {
+                if y + position.1 < 0 {
                     return true
                 }
 
-                if stack[safe: y + position.1 - 1]?[x + position.0] != "." {
+                if stack[safe: y + position.1]?[x + position.0] != "." {
                     return true
                 }
             }
@@ -52,7 +52,7 @@ public final class Day17: Day {
             var canMove = true
 
             for position in positions where canMove {
-                if wind, x - position.0 - 1 < 0 {
+                if wind, x + position.0 - 1 < 0 {
                     canMove = false
                 }
 
@@ -60,23 +60,26 @@ public final class Day17: Day {
                     canMove = false
                 }
 
-                if wind, stack[y][safe: x - position.0 - 1] != "." {
+                if wind, stack[y + position.1][safe: x + position.0 - 1] == "#" {
                     canMove = false
                 }
 
-                if !wind, stack[y][safe: x + position.0 + 1] != "." {
+                if !wind, stack[y + position.1][safe: x + position.0 + 1] == "#" {
                     canMove = false
                 }
             }
 
             if canMove {
                 if wind {
+                    //print("Pushed left")
                     return (x - 1, y)
                 } else {
+                    //print("Pushed right")
                     return (x + 1, y)
                 }
             }
 
+            //print("Pushed \(wind ? "left" : "right"), nothing happend")
             return (x, y)
         }
 
@@ -85,13 +88,12 @@ public final class Day17: Day {
 
             for position in positions {
                 let row = y + position.1
-                let line = stack[row]
 
-                stack[row] = line.replacing(at: x + position.0, with: "#")
+                stack[row] = stack[row].replacing(at: x + position.0, with: "#")
                 height = max(height, row)
             }
 
-            return height
+            return height + 1
         }
     }
 
@@ -110,27 +112,28 @@ public final class Day17: Day {
         (0 ... 2022).forEach { rock in
             piece = Piece.order[rock % Piece.order.count]
 
+            //print("Rock begins")
+
             var anchorX = 2
             var anchorY = height + piece.height + 2
 
-            while stack.count < anchorY + 1 {
+            while stack.count <= anchorY + 1 {
                 stack.append(".......")
             }
 
-            while !piece.landed(anchorX, anchorY, &stack) {
-                let wind = input[windPosition]
-
-                let result = piece.moveSide(toLeft: wind, x: anchorX, y: anchorY, &stack)
-
+            repeat {
+                let result = piece.moveSide(toLeft: input[windPosition], x: anchorX, y: anchorY, &stack)
                 anchorX = result.0
                 anchorY = result.1
-
-                if !piece.landed(anchorX, anchorY, &stack) {
-                    anchorY -= 1
-                }
-
                 windPosition = (windPosition + 1) % input.count
-            }
+
+                //print("Falls 1 unit")
+                anchorY -= 1
+            } while !piece.landed(anchorX, anchorY, &stack)
+
+            anchorY += 1
+
+            //print("Comes to rest")
 
             height = piece.apply(to: &stack, at: anchorX, y: anchorY)
 
